@@ -4,7 +4,7 @@
  * Created on March 24, 2016
  */
 
-class Main {
+public class Main {
     public static void main(String[] args){
         System.out.println("hallo");
     }
