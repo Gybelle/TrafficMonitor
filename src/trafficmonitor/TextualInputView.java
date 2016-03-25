@@ -36,6 +36,7 @@ public class TextualInputView extends JPanel {
         mField = new JTextField(field);
         mField.setPreferredSize(new Dimension(300,30));
         mField.setMargin(new Insets(0,7,0,0));
+        mField.setBackground(Color.white);
         mField.setEditable(false);
     }
 
@@ -69,6 +70,24 @@ public class TextualInputView extends JPanel {
         gbc.insets = new Insets(0, 10, 15, 35);  // top left bottom right
         this.add(mField, gbc);
     }
+
+    /**
+     * Get the field.
+     * @return the textfield within this panel.
+     */
+    public JTextField getTextField(){
+        return mField;
+    }
+
+    /**
+     * Set a new field as text field.
+     * @param textfield the new text field.
+     */
+    public void setTextField(JTextField textfield){
+        mField = textfield;
+    }
+
+
 
 
 
