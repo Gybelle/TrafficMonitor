@@ -12,8 +12,8 @@ public class View extends JPanel {
     private InputView mInputView;
     private OutputView mOutputView;
 
-    public View(){
-        init();
+    public View(Dimension sizeInputPanel, Dimension sizeOutputPanel){
+        init(sizeInputPanel, sizeOutputPanel);
         setPreferences();
         createUI();
     }
@@ -21,9 +21,9 @@ public class View extends JPanel {
     /**
      * Initialise the components.
      */
-    private void init(){
-        mInputView = new InputView();
-        mOutputView = new OutputView();
+    private void init(Dimension sizeInputPanel, Dimension sizeOutputPanel){
+        mInputView = new InputView(sizeInputPanel);
+        mOutputView = new OutputView(sizeOutputPanel);
     }
 
     /**
@@ -37,9 +37,20 @@ public class View extends JPanel {
      * Assign the needed panels within this main panel.
      */
     private void createUI(){
-        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-        this.add(mInputView);
-        this.add(mOutputView);
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        // input panel
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.insets = new Insets(0, 0, 0, 0);
+        this.add(mInputView, gbc);
+
+        // output panel
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.insets = new Insets(0, 0, 0, 0);
+        this.add(mOutputView, gbc);
     }
 
 

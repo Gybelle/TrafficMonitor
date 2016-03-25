@@ -18,7 +18,17 @@ public class TrafficMonitor {
     private final View mView;
 
     public TrafficMonitor() {
-        mView = new View();
+        int marginWidth = 40;
+        int marginHeight = 100;
+        int inputPanelWidth = WINDOW_WIDTH - marginWidth;
+        int inputPanelHeight = 150;
+        int outputPanelWidth = WINDOW_WIDTH - marginWidth;
+        int outputPanelHeight = WINDOW_HEIGHT - inputPanelHeight - marginHeight;
+
+        Dimension inputPanelSize = new Dimension(inputPanelWidth,inputPanelHeight);
+        Dimension outputPanelSize = new Dimension(outputPanelWidth, outputPanelHeight);
+
+        mView = new View(inputPanelSize, outputPanelSize);
     }
 
 

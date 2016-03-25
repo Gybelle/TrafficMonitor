@@ -9,9 +9,36 @@ import java.awt.*;
  */
 
 public class OutputView extends JPanel {
+    private Dimension mDimension;
 
-    public  OutputView(){
-       this.setBackground(Color.red);
+    public  OutputView(Dimension outputSize) {
+        mDimension = outputSize;
+        init();
+        setPreferences();
+        createUI();
+    }
+
+    /**
+     * Initialise the components.
+     */
+    private void init(){
+      //TODO: write some code...
+    }
+
+    /**
+     * Set the background.
+     */
+    private void setPreferences(){
+        this.setBackground(Color.red);
+        this.setPreferredSize(mDimension);
+        this.setBorder(BorderFactory.createLineBorder(Color.black));
+    }
+
+    /**
+     * Create the layout and add components.
+     */
+    private void createUI(){
+        //TODO: writhe some code.
     }
 
 }
