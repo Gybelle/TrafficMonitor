@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * A view to represent the input fields for the application..
+ * A view to represent the input fields for the application.
  * @author Michelle Gybels and Anaïs Ools
  */
 
