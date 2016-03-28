@@ -31,20 +31,22 @@ public class OutputView extends JPanel {
      */
     private void init() {
         mTabbedPane = new JTabbedPane();
-        mMonday = new DayPane(1);
-        mTuesday = new DayPane(2);
-        mWednesday = new DayPane(3);
-        mThursday = new DayPane(4);
-        mFriday = new DayPane(5);
+        Dimension dayPaneSize = new Dimension(mDimension.width-20,
+                mDimension.height-37);
+        mMonday = new DayPane(1, dayPaneSize);
+        mTuesday = new DayPane(2, dayPaneSize);
+        mWednesday = new DayPane(3, dayPaneSize);
+        mThursday = new DayPane(4, dayPaneSize);
+        mFriday = new DayPane(5, dayPaneSize);
     }
 
     /**
      * Set the background.
      */
     private void setPreferences() {
-        this.setBackground(Color.red);
+        //this.setBackground(Color.red);
         this.setPreferredSize(mDimension);
-        this.setBorder(BorderFactory.createLineBorder(Color.black));
+        //this.setBorder(BorderFactory.createLineBorder(Color.black));
     }
 
     /**
@@ -58,7 +60,13 @@ public class OutputView extends JPanel {
      * Create the layout and add components.
      */
     private void createUI() {
-        //TODO: writhe some code.
+        //Add the panels as tabs
+        mTabbedPane.addTab("Monday", mMonday);
+        mTabbedPane.addTab("Tuesday", mTuesday);
+        mTabbedPane.addTab("Wednesday", mWednesday);
+        mTabbedPane.addTab("Thursday", mThursday);
+        mTabbedPane.addTab("Friday", mFriday);
+        this.add(mTabbedPane);
     }
 
 }

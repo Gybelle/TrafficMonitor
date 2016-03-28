@@ -30,7 +30,8 @@ public class View extends JPanel {
      * Set the background.
      */
     private void setPreferences(){
-        this.setBackground(Color.white);
+        //this.setBackground(Color.white);
+        this.setBorder(BorderFactory.createLineBorder(Color.black));
     }
 
     /**

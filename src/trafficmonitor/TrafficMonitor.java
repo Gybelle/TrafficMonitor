@@ -20,8 +20,8 @@ public class TrafficMonitor {
     private final View mView;
 
     public TrafficMonitor() {
-        int marginWidth = 40;
-        int marginHeight = 100;
+        int marginWidth = 20;
+        int marginHeight = 60;
         int inputPanelWidth = WINDOW_WIDTH - marginWidth;
         int inputPanelHeight = 150;
         int outputPanelWidth = WINDOW_WIDTH - marginWidth;

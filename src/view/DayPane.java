@@ -10,9 +10,11 @@ import java.awt.*;
 
 public class DayPane extends JPanel {
     private int mDayOfWeek; //[1 = Monday, ..., 5 = Friday]
+    private Dimension mDimension;
 
-    public DayPane(int dayID){
+    public DayPane(int dayID, Dimension paneSize){
         mDayOfWeek = dayID;
+        mDimension = paneSize;
         init();
         setPreferences();
         createUI();
@@ -29,7 +31,8 @@ public class DayPane extends JPanel {
      * Set the background.
      */
     private void setPreferences(){
-        this.setBackground(Color.pink);
+        this.setBackground(Color.white);
+        this.setPreferredSize(mDimension);
     }
 
     /**
