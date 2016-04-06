@@ -45,6 +45,7 @@ public class ImagePane extends JPanel{
      * Set the background.
      */
     private void setPreferences(){
+        this.setBackground(Color.white);
         this.setPreferredSize(new Dimension(400,800));
 
     }
@@ -53,30 +54,30 @@ public class ImagePane extends JPanel{
      * Create the layout and add components.
      */
     private void createUI(){
-        /*
-        this.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-
-        //label
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        this.add(mLabel);
-
-        //image
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        this.add(new JButton("Placeholder Image"));
-        */
-
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         this.add(mLabel);
         this.add(Box.createRigidArea(new Dimension(0,5)));
-        //this.add(new JButton("Placeholder Image"));
 
         //testing:
         JLabel mImage = new JLabel(new ImageIcon("images/output.gif"));
         this.add(mImage);
+    }
 
+    /**
+     * Update image for newly set hours.
+     */
+    public void setImagePane(String partOfDay,int start, int end){
+        mPartOfDay = partOfDay;
+        mHourStart = start;
+        mHourEnd = end;
+        String custom = "";
+        String tab = "         ";
+        if(partOfDay.equals("Custom")){
+            custom = tab + tab + "(Select value from slider below)";
+        }
+        mLabel.setText(mPartOfDay + ": "
+                + mHourStart + "h00" + " - "
+                + mHourEnd + "h00" + custom);
     }
 
 
