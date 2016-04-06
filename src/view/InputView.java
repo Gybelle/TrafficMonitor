@@ -30,7 +30,7 @@ public class InputView extends JPanel {
      * Initialise the components.
      */
     private void init(){
-        mInputFrom = new TextualInputView("From: ", "Zonhoven");
+        mInputFrom = new TextualInputView("From: ", "Hasselt");
         mInputTo = new TextualInputView("To: ", "Brussel");
         mCalculateButton = new JButton("Calculate");
         mSwapButton = new JButton("Swap");
@@ -88,7 +88,8 @@ public class InputView extends JPanel {
         JPanel buttonPanel = createButtonPanel();
         gbc.gridx = 2;
         gbc.gridy = 0;
-        this.add(buttonPanel);
+        this.add(mCalculateButton);
+        //this.add(buttonPanel);
 
     }
 

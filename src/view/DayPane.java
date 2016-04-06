@@ -11,8 +11,14 @@ import java.awt.*;
 public class DayPane extends JPanel {
     private int mDayOfWeek; //[1 = Monday, ..., 5 = Friday]
     private Dimension mDimension;
+    private ImagePane mActiveImage;
     private ImagePane mMorning;
     private ImagePane mAfternoon;
+    private ImagePane mCustom;
+    private JButton mMorningButton;
+    private JButton mAfternoonButton;
+    private JButton mCustomButton;
+    private JSlider mSlider;
 
     public DayPane(int dayID, Dimension paneSize){
         mDayOfWeek = dayID;
@@ -26,8 +32,15 @@ public class DayPane extends JPanel {
      * Initialise the components.
      */
     private void init(){
-        mMorning = new ImagePane(mDayOfWeek, "Morning", 6, 10);
-        mAfternoon = new ImagePane(mDayOfWeek, "Evening", 15, 19);
+        mMorningButton = new JButton("Morning");
+        mAfternoonButton = new JButton("Afternoon");
+        mCustomButton = new JButton("Custom");
+        mMorning = new ImagePane(mDayOfWeek, "Morning rush-hour", 6, 10);
+        mAfternoon = new ImagePane(mDayOfWeek, "Evening rush-hour", 15, 19);
+        mCustom = new ImagePane(mDayOfWeek, "Custum", 12, 13);
+        mSlider = new JSlider(JSlider.HORIZONTAL, 0, 24, 12);
+
+        mActiveImage = mMorning;
     }
 
     /**
@@ -36,26 +49,44 @@ public class DayPane extends JPanel {
     private void setPreferences(){
         this.setBackground(Color.white);
         this.setPreferredSize(mDimension);
+
+        mMorningButton.setEnabled(false);
+        mAfternoonButton.setEnabled(true);
+        mCustomButton.setEnabled(true);
+
     }
 
     /**
      * Create the layout and add components.
      */
     private void createUI(){
-        this.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
+        this.setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
 
-        //add "Morning"
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        this.add(mMorning);
+        this.add(createButtonPanel());
 
-        /*
-        //add "Afternoon"
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        this.add(mAfternoon);
-        */
+        this.add(mActiveImage);
+        mActiveImage.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.add(Box.createRigidArea(new Dimension(0,5)));
+
+        mSlider.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.add(mSlider);
+    }
+
+    /**
+     * Add buttons to a panel and layout them.
+     * @return the resulting panel.
+     */
+    private JPanel createButtonPanel(){
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout());
+
+        buttonPanel.add(mMorningButton);
+        buttonPanel.add(mAfternoonButton);
+        buttonPanel.add(mCustomButton);
+
+        buttonPanel.setBackground(Color.white);
+
+        return buttonPanel;
     }
 
 }
