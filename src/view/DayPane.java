@@ -1,7 +1,10 @@
 package view;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.util.Hashtable;
 
 /**
  * A view to represent the days of the week within a tabbed pane.
@@ -19,12 +22,14 @@ public class DayPane extends JPanel {
     private JButton mAfternoonButton;
     private JButton mCustomButton;
     private JSlider mSlider;
+    private int mSliderValue;
 
     public DayPane(int dayID, Dimension paneSize){
         mDayOfWeek = dayID;
         mDimension = paneSize;
         init();
         setPreferences();
+        setActions();
         createUI();
     }
 
@@ -57,6 +62,18 @@ public class DayPane extends JPanel {
     }
 
     /**
+     * Create actions for buttons and slider.
+     */
+    private void setActions(){
+        mSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent changeEvent) {
+                mSliderValue = ((JSlider)changeEvent.getSource()).getValue();
+            }
+        });
+    }
+
+    /**
      * Create the layout and add components.
      */
     private void createUI(){
@@ -69,6 +86,7 @@ public class DayPane extends JPanel {
         this.add(Box.createRigidArea(new Dimension(0,5)));
 
         mSlider.setAlignmentX(Component.CENTER_ALIGNMENT);
+        setSliderLayout();
         this.add(mSlider);
     }
 
@@ -87,6 +105,21 @@ public class DayPane extends JPanel {
         buttonPanel.setBackground(Color.white);
 
         return buttonPanel;
+    }
+
+    /**
+     * Create layout for slider.
+     */
+    private void setSliderLayout(){
+        Hashtable sliderLabels= new Hashtable();
+        for(int i = 0; i <= 24; i++){
+            String label = "" + i + "h";
+            sliderLabels.put(i, new JLabel(label));
+        }
+
+        mSlider.setLabelTable(sliderLabels);
+        mSlider.setPaintLabels(true);
+
     }
 
 }
