@@ -50,10 +50,12 @@ public class DayPane extends JPanel {
         gbc.gridy = 0;
         this.add(mMorning);
 
+        /*
         //add "Afternoon"
         gbc.gridx = 1;
         gbc.gridy = 0;
         this.add(mAfternoon);
+        */
     }
 
 }

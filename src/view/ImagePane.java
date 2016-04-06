@@ -1,7 +1,11 @@
 package view;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * A view to represent the image with traffic information.
@@ -15,7 +19,7 @@ public class ImagePane extends JPanel{
     private int mHourEnd;
 
 
-    public ImagePane(int dayID,String partOfDay,int start, int end){
+    public ImagePane(int dayID, String partOfDay,int start, int end){
         mDayOfWeek = dayID;
         mPartOfDay = partOfDay;
         mHourStart = start;
@@ -41,7 +45,7 @@ public class ImagePane extends JPanel{
      * Set the background.
      */
     private void setPreferences(){
-        this.setPreferredSize(new Dimension(300,300));
+        this.setPreferredSize(new Dimension(400,800));
 
     }
 
@@ -67,7 +71,13 @@ public class ImagePane extends JPanel{
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         this.add(mLabel);
         this.add(Box.createRigidArea(new Dimension(0,5)));
-        this.add(new JButton("Placeholder Image"));
+        //this.add(new JButton("Placeholder Image"));
+
+        //testing:
+        JLabel mImage = new JLabel(new ImageIcon("images/output.gif"));
+        this.add(mImage);
+
     }
+
 
 }
