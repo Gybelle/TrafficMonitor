@@ -14,7 +14,7 @@ import javax.swing.*;
 
 public class TrafficMonitor {
     //Constants
-    private static final int WINDOW_WIDTH = 1200;
+    private static final int WINDOW_WIDTH = 1000;
     private static final int WINDOW_HEIGHT = 700;
 
     private final View mView;
@@ -23,7 +23,7 @@ public class TrafficMonitor {
         int marginWidth = 20;
         int marginHeight = 60;
         int inputPanelWidth = WINDOW_WIDTH - marginWidth;
-        int inputPanelHeight = 150;
+        int inputPanelHeight = 80;
         int outputPanelWidth = WINDOW_WIDTH - marginWidth;
         int outputPanelHeight = WINDOW_HEIGHT - inputPanelHeight - marginHeight;
 
