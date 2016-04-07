@@ -150,6 +150,8 @@ public class DayPane extends JPanel {
 
         mSlider.setLabelTable(sliderLabels);
         mSlider.setPaintLabels(true);
+
+        mSlider.setVisible(false);
     }
 
 }
