@@ -11,6 +11,7 @@ import java.awt.*;
 public class View extends JPanel {
     private InputView mInputView;
     private OutputView mOutputView;
+    private Image mBackground;
 
     public View(Dimension sizeInputPanel, Dimension sizeOutputPanel){
         init(sizeInputPanel, sizeOutputPanel);
@@ -31,6 +32,9 @@ public class View extends JPanel {
      */
     private void setPreferences(){
         //this.setBackground(Color.white);
+        ImageIcon image = new ImageIcon("images/Background3.png");
+        mBackground = image.getImage();
+
         this.setBorder(BorderFactory.createLineBorder(Color.black));
     }
 
@@ -55,5 +59,15 @@ public class View extends JPanel {
     }
 
 
+    /**
+     * Paint the background.
+     *
+     * @param g the graphics used to paint.
+     */
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(mBackground, 0, 0, getWidth(), getHeight(), null);
+    }
 
 }

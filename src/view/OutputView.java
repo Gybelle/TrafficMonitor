@@ -45,6 +45,7 @@ public class OutputView extends JPanel {
      */
     private void setPreferences() {
         //this.setBackground(Color.red);
+        this.setOpaque(false);
         this.setPreferredSize(mDimension);
         //this.setBorder(BorderFactory.createLineBorder(Color.black));
     }

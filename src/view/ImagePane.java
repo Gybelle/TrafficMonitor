@@ -109,6 +109,10 @@ public class ImagePane extends JPanel{
     }
 
 
+    /**
+     * Get the location of the file based on day of week.
+     * @return path to folder.
+     */
     private String getFolder(){
         String folder = "";
         switch(mDayOfWeek){

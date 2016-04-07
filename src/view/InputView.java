@@ -40,6 +40,7 @@ public class InputView extends JPanel {
     private void setPreferences(){
         //this.setBackground(Color.blue);
         this.setPreferredSize(mDimension);
+        this.setOpaque(false);
         //this.setBorder(BorderFactory.createLineBorder(Color.black));
     }
 
