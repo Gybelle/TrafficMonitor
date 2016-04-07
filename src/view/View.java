@@ -31,8 +31,8 @@ public class View extends JPanel {
      * Set the background.
      */
     private void setPreferences(){
-        //this.setBackground(Color.white);
-        ImageIcon image = new ImageIcon("images/Background3.png");
+        this.setBackground(Color.white);
+        ImageIcon image = new ImageIcon("images/Background4.png");
         mBackground = image.getImage();
 
         this.setBorder(BorderFactory.createLineBorder(Color.black));
