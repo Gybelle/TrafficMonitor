@@ -13,6 +13,7 @@ import java.io.IOException;
  */
 public class ImagePane extends JPanel{
     private JLabel mLabel;
+    private JLabel mImage;
     private int mDayOfWeek;
     private String mPartOfDay;
     private int mHourStart;
@@ -39,6 +40,7 @@ public class ImagePane extends JPanel{
                 + mHourStart + "h00" + " - "
                 + mHourEnd + "h00";
         mLabel = new JLabel(labelText);
+        mImage = new JLabel();
     }
 
     /**
@@ -58,8 +60,8 @@ public class ImagePane extends JPanel{
         this.add(mLabel);
         this.add(Box.createRigidArea(new Dimension(0,5)));
 
-        //testing:
-        JLabel mImage = new JLabel(new ImageIcon("images/output.gif"));
+        //testing
+        mImage.setIcon(new ImageIcon("images/output.gif")); //TODO change this
         this.add(mImage);
     }
 
@@ -78,7 +80,56 @@ public class ImagePane extends JPanel{
         mLabel.setText(mPartOfDay + ": "
                 + mHourStart + "h00" + " - "
                 + mHourEnd + "h00" + custom);
+
+        setImage();
     }
 
+    /**
+     * Set the corresponding gif within the image pane.
+     */
+    private void setImage(){
+        String file = getFolder();
+        switch(mPartOfDay){
+            case "Morning":
+                file += "morning.gif";
+                break;
+            case "Afternoon":
+                file += "afternoon.gif";
+                break;
+            case "Custom":
+                file += (mHourStart < 10 ? "0" + mHourStart : mHourStart ) + ".gif";
+        }
+
+        try{
+            mImage.setText("");
+            mImage.setIcon(new ImageIcon(file));
+        } catch (Exception e){
+            mImage.setText("Image " + file + " not found.");
+        }
+    }
+
+
+    private String getFolder(){
+        String folder = "";
+        switch(mDayOfWeek){
+            case 1:
+                folder = "images/1_Mon/";
+                break;
+            case 2:
+                folder = "images/2_Tue/";
+                break;
+            case 3:
+                folder = "images/3_Wed/";
+                break;
+            case 4:
+                folder = "images/4_Thu/";
+                break;
+            case 5:
+                folder = "images/5_Fri/";
+                break;
+        }
+
+        return folder;
+    }
 
 }
