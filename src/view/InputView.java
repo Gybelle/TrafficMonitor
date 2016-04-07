@@ -14,7 +14,6 @@ public class InputView extends JPanel {
     private Dimension mDimension;
     private TextualInputView mInputFrom;
     private TextualInputView mInputTo;
-    private JButton mCalculateButton;
     private JButton mSwapButton;
 
 
@@ -32,7 +31,6 @@ public class InputView extends JPanel {
     private void init(){
         mInputFrom = new TextualInputView("From: ", "Hasselt");
         mInputTo = new TextualInputView("To: ", "Brussel");
-        mCalculateButton = new JButton("Calculate");
         mSwapButton = new JButton("Swap");
     }
 
@@ -49,13 +47,6 @@ public class InputView extends JPanel {
      * Create actions for buttons in this view.
      */
     private void setActions(){
-        mCalculateButton.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent ae){
-                System.out.println("Calculating... Nothing (yet) ^^");
-            }
-        });
-
         mSwapButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -83,33 +74,5 @@ public class InputView extends JPanel {
         gbc.gridx = 1;
         gbc.gridy = 0;
         this.add(mInputTo);
-
-        //add buttons
-        JPanel buttonPanel = createButtonPanel();
-        gbc.gridx = 2;
-        gbc.gridy = 0;
-        this.add(mCalculateButton);
-        //this.add(buttonPanel);
-
     }
-
-    /**
-     * Add buttons to a panel and layout them.
-     * @return the resulting panel.
-     */
-    private JPanel createButtonPanel(){
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.PAGE_AXIS));
-
-        mSwapButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttonPanel.add(mSwapButton);
-
-        buttonPanel.add(Box.createRigidArea(new Dimension(0,10)));
-
-        mCalculateButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttonPanel.add(mCalculateButton);
-
-        return buttonPanel;
-    }
-
 }
