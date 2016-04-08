@@ -50,16 +50,15 @@ public class TrafficMonitor {
         frame.setLocation(screen.width / 2 - WINDOW_WIDTH / 2,
                 screen.height / 2 - WINDOW_HEIGHT / 2);
 
-        // set icon
-        /*
-        ArrayList<Image> images = new ArrayList();
+        // add icon
+        ArrayList<Image> iconImageList = new ArrayList();
         Toolkit kit = Toolkit.getDefaultToolkit();
-        java.net.URL url = ClassLoader.getSystemResource("images/Icon.png");
-        images.add(kit.createImage(url));
-        url = ClassLoader.getSystemResource("images/IconSmall.png");
-        images.add(kit.createImage(url));
-        frame.setIconImages(images);
-        */
+        java.net.URL url = ClassLoader.getSystemResource("icons/Icon.png");
+        iconImageList.add(kit.createImage(url));
+        url = ClassLoader.getSystemResource("icons/IconSmall.png");
+        iconImageList.add(kit.createImage(url));
+        frame.setIconImages(iconImageList);
+
 
         frame.add(mView);
         frame.pack();

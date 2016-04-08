@@ -60,9 +60,8 @@ public class ImagePane extends JPanel{
         this.add(mLabel);
         this.add(Box.createRigidArea(new Dimension(0,5)));
 
-        //testing
-        mImage.setIcon(new ImageIcon("images/output.gif")); //TODO change this
         this.add(mImage);
+        setImage();
     }
 
     /**
@@ -90,10 +89,10 @@ public class ImagePane extends JPanel{
     private void setImage(){
         String file = getFolder();
         switch(mPartOfDay){
-            case "Morning":
+            case "Morning rush-hour":
                 file += "morning.gif";
                 break;
-            case "Afternoon":
+            case "Evening rush-hour":
                 file += "afternoon.gif";
                 break;
             case "Custom":
