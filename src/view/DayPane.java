@@ -86,7 +86,7 @@ public class DayPane extends JPanel {
                 mAfternoonButton.setEnabled(false);
                 mCustomButton.setEnabled(true);
                 mSlider.setVisible(false);
-                mActiveImage.setImagePane("Evening rush-hour", 17, 20);
+                mActiveImage.setImagePane("Evening rush-hour", 16, 20);
             }
         });
 

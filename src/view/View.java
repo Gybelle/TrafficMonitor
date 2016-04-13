@@ -32,7 +32,8 @@ public class View extends JPanel {
      */
     private void setPreferences(){
         this.setBackground(Color.white);
-        ImageIcon image = new ImageIcon("images/Background4.png");
+        java.net.URL url = ClassLoader.getSystemResource("Background4.png");
+        ImageIcon image = new ImageIcon(url);
         mBackground = image.getImage();
 
         this.setBorder(BorderFactory.createLineBorder(Color.black));
