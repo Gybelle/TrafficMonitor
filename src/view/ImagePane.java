@@ -97,7 +97,7 @@ public class ImagePane extends JPanel{
 
         try{
             mImage.setText("");
-            mImage.setIcon(new ImageIcon(file));
+            mImage.setIcon(new ImageIcon(getClass().getClassLoader().getResource(file)));
         } catch (Exception e){
             mImage.setText("Image " + file + " not found.");
         }
@@ -112,19 +112,19 @@ public class ImagePane extends JPanel{
         String folder = "";
         switch(mDayOfWeek){
             case 1:
-                folder = "images/1_Mon/";
+                folder = "1_Mon/";
                 break;
             case 2:
-                folder = "images/2_Tue/";
+                folder = "2_Tue/";
                 break;
             case 3:
-                folder = "images/3_Wed/";
+                folder = "3_Wed/";
                 break;
             case 4:
-                folder = "images/4_Thu/";
+                folder = "4_Thu/";
                 break;
             case 5:
-                folder = "images/5_Fri/";
+                folder = "5_Fri/";
                 break;
         }
 
