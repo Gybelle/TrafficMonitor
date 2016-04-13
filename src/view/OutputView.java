@@ -27,7 +27,7 @@ public class OutputView extends JPanel {
     }
 
     /**
-     *☺
+     * Initialise the components.
      */
     private void init() {
         mTabbedPane = new JTabbedPane();
